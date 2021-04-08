@@ -1,4 +1,5 @@
 import random
+from colors import bcolors
 
 CASTLE = 0
 WHEAT = 1
@@ -18,7 +19,67 @@ class Domino:
         self.king_two = king_two
 
     def __str__(self):
-        return "%s | %s K: %s | %s K: %s | " % (self.number, self.land_one, self.king_one, self.land_two, self.king_two)
+        if self.king_one == 3:
+            kingOne = "***"
+        elif self.king_one == 2:
+            kingOne = "** "
+        elif self.king_one == 1:
+            kingOne = "*  "
+        elif self.king_one == 0:
+            kingOne = "   "
+        if self.king_one == 3:
+            kingOne = "***"
+        elif self.king_one == 2:
+            kingOne = "** "
+        elif self.king_one == 1:
+            kingOne = "*  "
+        elif self.king_one == 0:
+            kingOne = "   " 
+
+        if self.land_one == 6:
+            landOne = f"{bcolors.BBLACKB}C" + kingOne + f"{bcolors.BASE}"
+        elif self.land_one == 5:
+            landOne = f"{bcolors.BREDB}W" + kingOne + f"{bcolors.BASE}"
+        elif self.land_one == 4:
+            landOne = f"{bcolors.BPURPLEB}S" + kingOne + f"{bcolors.BASE}"
+        elif self.land_one == 3:
+            landOne = f"{bcolors.BBLUEB}W" + kingOne + f"{bcolors.BASE}"
+        elif self.land_one == 2:
+            landOne = f"{bcolors.BGREENB}F" + kingOne + f"{bcolors.BASE}"
+        elif self.land_one == 1:
+            landOne = f"{bcolors.BYELLOWB}W" + kingOne + f"{bcolors.BASE}"
+
+        if self.king_two == 3:
+            kingTwo = "***"
+        elif self.king_two == 2:
+            kingTwo = "** "
+        elif self.king_two == 1:
+            kingTwo = "*  "
+        elif self.king_two == 0:
+            kingTwo = "   "
+        if self.king_two == 3:
+            kingTwo = "***"
+        elif self.king_two == 2:
+            kingTwo = "** "
+        elif self.king_two == 1:
+            kingTwo = "*  "
+        elif self.king_two == 0:
+            kingTwo = "   " 
+
+        if self.land_two == 6:
+            landTwo = f"{bcolors.BBLACKB}C" + kingTwo + f"{bcolors.BASE}"
+        elif self.land_two == 5:
+            landTwo = f"{bcolors.BREDB}W" + kingTwo + f"{bcolors.BASE}"
+        elif self.land_two == 4:
+            landTwo = f"{bcolors.BPURPLEB}S" + kingTwo + f"{bcolors.BASE}"
+        elif self.land_two == 3:
+            landTwo = f"{bcolors.BBLUEB}W" + kingTwo + f"{bcolors.BASE}"
+        elif self.land_two == 2:
+            landTwo = f"{bcolors.BGREENB}F" + kingTwo + f"{bcolors.BASE}"
+        elif self.land_two == 1:
+            landTwo = f"{bcolors.BYELLOWB}W" + kingTwo + f"{bcolors.BASE}"
+           
+        return "%s | %s | %s | " % (self.number, landOne, landTwo)
 
 DOMINO = [
     Domino(1, WHEAT, 0, WHEAT, 0),
@@ -71,12 +132,33 @@ DOMINO = [
     Domino(48, WHEAT, 0, CAVE, 3)
 ]
 
-print("*************************************")
+print(f"{bcolors.GREEN}*************************************")
 print("*   Affichage liste Domino créée    *")
-print("*************************************")
+print(f"*************************************{bcolors.BASE}")
 
 for k in range(len(DOMINO)):
     print(DOMINO[k])
+
+print(f"{bcolors.GREEN}*************************************")
+print("*      Fin liste Domino créée       *")
+print(f"*************************************{bcolors.BASE}")
+
+print(" ")
+print(f"taille liste : {len(DOMINO)}")
+print(" ")
+
+random.shuffle(DOMINO)
+
+print(f"{bcolors.GREEN}*************************************")
+print("*  Affichage liste Domino mélangée  *")
+print(f"*************************************{bcolors.BASE}")
+
+for k in range(len(DOMINO)):
+    print(DOMINO[k])
+
+print(f"{bcolors.GREEN}***********************************")
+print("*    Fin liste Domino mélangée    *")
+print(f"***********************************{bcolors.BASE}")
 
 print(" ")
 print(f"taille liste : {len(DOMINO)}")
