@@ -68,3 +68,4 @@ class Domino(object):
 
     def __str__(self):
         return ' | ' + self.land_one + ' k=' + self.king_one + ' | ' + self.land_two + ' k=' + self.king_two + ' | '
+    FOFOFOFOFO
