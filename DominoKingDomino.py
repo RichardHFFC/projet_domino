@@ -1,3 +1,5 @@
+import random
+
 CASTLE = 0
 WHEAT = 1
 FOREST = 2
@@ -5,6 +7,18 @@ WATER = 3
 SHEEP = 4
 WASTELAND = 5
 CAVE = 6
+
+class Domino:
+
+    def __init__(self, number, land_one, king_one, land_two, king_two):
+        self.number = number
+        self.land_one = land_one
+        self.king_one = king_one
+        self.land_two = land_two
+        self.king_two = king_two
+
+    def __str__(self):
+        return "%s | %s K: %s | %s K: %s | " % (self.number, self.land_one, self.king_one, self.land_two, self.king_two)
 
 DOMINO = [
     Domino(1, WHEAT, 0, WHEAT, 0),
@@ -54,18 +68,16 @@ DOMINO = [
     Domino(45, CAVE, 2, WHEAT, 0),
     Domino(46, WASTELAND, 0, CAVE, 2),
     Domino(47, WASTELAND, 0, CAVE, 2),
-    Domino(48, WHEAT, 0, CAVE, 3),
+    Domino(48, WHEAT, 0, CAVE, 3)
 ]
 
-class Domino(object):
+print("*************************************")
+print("*   Affichage liste Domino créée    *")
+print("*************************************")
 
-    def __init__(self, number, land_one, king_one, land_two, king_two):
-        self.number = number
-        self.land_one = land_one
-        self.king_one = king_one
-        self.land_two = land_two
-        self.king_two = king_two
+for k in range(len(DOMINO)):
+    print(DOMINO[k])
 
-    def __str__(self):
-        return ' | ' + self.land_one + ' k=' + self.king_one + ' | ' + self.land_two + ' k=' + self.king_two + ' | '
-    FOFOFOFOFO
+print(" ")
+print(f"taille liste : {len(DOMINO)}")
+print(" ")
