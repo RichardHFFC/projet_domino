@@ -18,3 +18,12 @@ class bcolors:
     BPURPLE = '\033[0;45m' 
     BCYAN = '\033[0;46m' 
     BWHITE = '\033[0;47m' 
+    # both
+    BBLACKB = '\033[0;37;40m' 
+    BREDB = '\033[0;30;41m' 
+    BGREENB = '\033[0;30;42m' 
+    BYELLOWB = '\033[0;30;43m' 
+    BBLUEB = '\033[0;30;44m' 
+    BPURPLEB = '\033[0;30;45m' 
+    BCYANB = '\033[0;30;46m' 
+    BWHITEB = '\033[0;30;47m' 
