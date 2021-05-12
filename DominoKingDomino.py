@@ -79,7 +79,7 @@ class Domino:
         elif self.land_two == 1:
             landTwo = f"{bcolors.BYELLOWB}W" + kingTwo + f"{bcolors.BASE}"
            
-        return "%s | %s | %s | " % (self.number, landOne, landTwo)
+        return "%2s | %s | %s | " % (self.number, landOne, landTwo)
 
 DOMINO = [
     Domino(1, WHEAT, 0, WHEAT, 0),
