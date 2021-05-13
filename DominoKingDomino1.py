@@ -12,6 +12,8 @@ CAVE = 6
 # Définition de joueurs
 PLAYER_ONE = 10
 PLAYER_TWO = 20
+# liste vide pour tirage de 4 dominos
+DRAW =[]
 
 # class Domino pour définir un domino
 class Domino:
@@ -98,9 +100,8 @@ class Castle :
             player = f"{bcolors.BWHITEB}C_P2"+f"{bcolors.BASE}"
 
         return "%2s | %s |" % (self.number, player)
-# Class pour tirer 4 quarte
 
-#Création de la liste des chateaux 
+    #Création de la liste des chateaux 
 KING = [
     Castle(1,PLAYER_ONE),
     Castle(2,PLAYER_ONE),
@@ -158,18 +159,19 @@ DOMINO = [
     Domino(47, WASTELAND, 0, CAVE, 2),
     Domino(48, WHEAT, 0, CAVE, 3)
 ]
-# liste vide pour tirage de 4 dominos
-DRAW =[]
+
 # Mélange de la liste 
 random.shuffle(DOMINO)
 # Sélection des 24 premiers dominos de la liste mélangée
 DOMINO_LIST = DOMINO[:24]
+
 #Fonction pour piocher les 4 premier dominos
 def draw (list):
     for k in range (4):
         DRAW.append(list[k])
     del list[0:4]
     return DRAW
+
 #Fonction du tri de la liste de dominos piochés 
 def sort_insertion(list):
     N = len(list)
@@ -202,7 +204,7 @@ print(f"{bcolors.GREEN}***********************************")
 print("*    Fin liste mélangée de 24 Dominos    *")
 print(f"***********************************{bcolors.BASE}")
 
-# boucle pour faire 6 tirages 
+# boucle pour faire 6 tirages (2 joueurs)
 for i in range(6):
     #pioche des 4 premiers dominos
     draw(DOMINO_LIST)
