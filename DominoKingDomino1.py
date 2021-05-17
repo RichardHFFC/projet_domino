@@ -167,6 +167,8 @@ DOMINO_LIST = DOMINO[:24]
 
 #Fonction pour piocher les 4 premier dominos
 def draw (list):
+    #efface les 4 dominos tirés précédent
+    del DRAW[0:4]
     for k in range (4):
         DRAW.append(list[k])
     del list[0:4]
@@ -237,9 +239,6 @@ for i in range(6):
     print(" ")
     print(f"taille liste : {len(DRAW)}")
     print(" ")
-
-    #efface les 4 dominos tirés
-    del DRAW[0:4]
 
     print(f"{bcolors.GREEN}***********************************")
     print("*    Fin du tirage de 4 dominos triés  *")
