@@ -1,4 +1,4 @@
-from numpy import zeros,array
+import numpy as np
 def  __Str__():         
         croisement = "+"
         ligne = "-"
@@ -28,20 +28,11 @@ System.out.print("Joueur "
                     xDest = (positionTab % 10)-1;
                     yDest = (positionTab / 10)-1;
 """
-
-matrice = array([[0,0],[0,0],[0,0],[0,0],[0,0],[0,0],[0,0],[0,0],[0,0],[0,0],[0,0],[0,0],[0,0],[0,0],[0,0],[0,0],[0,0],[0,0],[0,0],[0,0],[0,0],[0,0],[0,0],[0,0],[0,0]])
+matrice = np.zeros((5,5,2),dtype=int)
 print(matrice)
 print("")
-#matrice = matrice.reshape(5,5)
-#print(matrice)
-#print("")
-"""
-for i in range(0,25):
-    for j in range(0,2):
-        print(str(matrice[i][j]),", ")
-    print()
-"""
+
 for ligne in matrice: #pour chaque ligne de la matrice
-       for elt in ligne: #pour chaque élément de la ligne
-          print(elt, end=", ")
-       print()
+    for elt in ligne: #pour chaque élément de la ligne
+        print(elt, end=" ")
+    print()

@@ -1,10 +1,10 @@
-from Dominolib import DOMINO
+from listDomino import DOMINO
 
 # Sélection des 24 premiers dominos
 DOMINO_24 = DOMINO[:24]
 # Liste vide pour tirage des dominos
 DRAW=[]
-SPLIT=[]
+SPLIT1=[]
 SPLIT2=[]
 #Fonction pour piocher et trier les 4 premiers dominos
 def draw (list):   
@@ -25,10 +25,9 @@ def draw (list):
     return DRAW
 
 def Split1(list,number):
-    #for k in range (len(list)):
-    SPLIT.append(list[number].land_one)
-    SPLIT.append(list[number].king_one)
-    return SPLIT
+    SPLIT1.append(list[number].land_one)
+    SPLIT1.append(list[number].king_one)
+    return SPLIT1
 
 def Split2(list,number):
     SPLIT2.append(list[number].land_two)
