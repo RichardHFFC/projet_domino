@@ -2,7 +2,7 @@ from Dominolib import Domino
 from colors import bcolors
 import random
 
-CASTLE = 0
+CASTLE = 7
 WHEAT = 1
 FOREST = 2
 WATER = 3

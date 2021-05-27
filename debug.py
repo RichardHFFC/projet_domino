@@ -1,9 +1,8 @@
-from numpy.core.fromnumeric import shape
 from Dominolib import DominoTwo
 from Dominolib import DominoOne
-from fctdomino import DOMINO_24, DRAW, draw, Split1, Split2
+from fctdomino import DOMINO_24, DRAW, draw, Split1, Split2, print_board
 from colors import bcolors
-
+from Board_player import Player, Castle, Dom
 import numpy as np
 
 print(f"{bcolors.GREEN}*************************************")
@@ -29,41 +28,7 @@ print(f"*************************************{bcolors.BASE}")
 
 for k in range(len(DRAW)):
     print(DRAW[k])
-"""
-print(f"{bcolors.GREEN}***********************************")
-print("*    Fin liste Domino mélangée    *")
-print(f"***********************************{bcolors.BASE}")
 
-print(" ")
-print(f"taille liste : {len(DRAW)}")
-print(" ")
-
-for k in range(len(DOMINO_24)):
-    print(DOMINO_24[k])
-
-print(f"{bcolors.GREEN}***********************************")
-print("*    Fin liste Domino mélangée    *")
-print(f"***********************************{bcolors.BASE}")
-
-print(" ")
-print(f"taille liste : {len(DOMINO_24)}")
-print(" ")
-
-print(f"{bcolors.GREEN}*************************************")
-print("*  Affichage liste Domino mélangée  *")
-print(f"*************************************{bcolors.BASE}")
-
-for k in range(len(KING)):
-    print(KING[k])
-
-print(f"{bcolors.GREEN}***********************************")
-print("*    Fin liste Domino mélangée    *")
-print(f"***********************************{bcolors.BASE}")
-
-print(" ")
-print(f"taille liste : {len(KING)}")
-print(" ")
-"""
 while True:
     numbertuile= int(input("Enter num tuile : "))
     if numbertuile < 4:
@@ -71,12 +36,11 @@ while True:
 
 print("")
 SPLIT1=Split1(DRAW,numbertuile)
-#for k in range(len(SPLIT1)):
-print(SPLIT1)
+#print(SPLIT1)
 print("")
 
 SPLIT2=Split2(DRAW,numbertuile)
-print(SPLIT2)
+#print(SPLIT2)
 print("")
 print(DRAW[numbertuile])
 print("")
@@ -89,6 +53,8 @@ while True:
     #landOne fixe
     if numberTuile == 0:
         #landTwo localisation
+        Dom1 = SPLIT1
+        Dom2 = SPLIT2
         while True:
             localisationTuile = int(input("what is your choice 2 or 4 or 6 or 8 : "))
             if localisationTuile == 2:
@@ -108,6 +74,8 @@ while True:
         break
     #landTwo fixe
     elif numberTuile == 1:
+        Dom1 = SPLIT2
+        Dom2 = SPLIT1
         while True:
         #landOne localisation
             localisationTuile = int(input("what is your choice 2 or 4 or 6 or 8 : "))
@@ -127,80 +95,75 @@ while True:
                 break
         break
 print("")
-"""
-def  __Str__():         
-        croisement = "+"
-        ligne = "-"
-        
-        ligneComplete = croisement
-        colonne = 0
-        while(colonne < 5) :
-            for j in range (7): 
-                ligneComplete += ligne
-            ligneComplete += croisement  
-            colonne = colonne + 1 
-        ligneComplete += "\n" 
 
-        plateau = ligneComplete 
-        for i in range (5) :
-            for j in range (5) : 
-                plateau += "|"
-                plateau += str(DominoOne(SPLIT1[i], SPLIT1[j]))
-            plateau += "|\n" + ligneComplete
-        print(plateau)"""
-#__Str__()
-"""
-BOARD = np.empty((5,5,2),dtype=int)
-#for i in range(50):
-#    BOARD = np.append(BOARD,np.zeros((1)),axis = 0)
-#BOARD = BOARD.reshape(5,10)
+
+a = [[0, 0, 7, 0, 4, 0, 2, 2, 2, 1 ], [1, 1, 2, 3, 4, 0, 2, 2, 2, 1 ], [1, 1, 2, 3, 4, 0, 2, 2, 2, 1 ], [1, 1, 2, 3, 4, 0, 2, 2, 2, 1 ], [1, 1, 2, 3, 4, 0, 2, 2, 2, 1 ]]
+
+print_board(a)
+
+print(a[0])
 print("")
-print(BOARD)
-BOARD[2,4]=SPLIT1[0]
-BOARD[2,5]=SPLIT1[1]
-print("")
-print(BOARD)
-print("")
-print(DominoOne(int(BOARD[2,4]),int(BOARD[2,5])))
-croisement = "+"
-ligne = "-"
-ligneComplete = croisement
-colonne = 0
-while(colonne < 5) :
-    for j in range (7): 
-        ligneComplete += ligne
-    ligneComplete += croisement  
-    colonne = colonne + 1 
-ligneComplete += "\n" 
-plateau = ligneComplete 
+(a[0][0])= SPLIT1[0]
+(a[0][1])= SPLIT1[1]
+print(a[0])
+
+print_board(a)
+P1=Player(1)
+P2=Player(2)
 """
-"""for k in range(5):
-    print(plateau)
-    for i in range(0,BOARD.shape[0]):
-        for j in range(0,BOARD.shape[1]):
-            print(DominoOne(int(BOARD[j,i]),int(BOARD[j,i+1])))
-        i = i+2
-print(plateau)"""
+print_board(P1.a)
+print("")
+(P1.a[0][0])= SPLIT1[0]
+print_board(P1.a)
+print("")
+"""
+while True:
+    board = int(input("what is your board (1,2) : "))
+    if (board == 1):
+        board = P1.a
+        break
+    if (board == 2):
+        board = P1.b
+        break
+while True:
+    line = int(input("what is your line (1,2,3,4,5) : "))
+    if ((line == 1)or(line == 2)or(line == 3)or(line == 4)or(line == 5)):
+        break
+while True:
+    colum = int(input("what is your column (1,2,3,4,5) : "))
+    if ((colum == 1)or(colum == 2)or(colum == 3)or(colum == 4)or(colum == 5)):
+        break
+Castle(line,colum,board)
+print_board(board)
+print("")
 
-croisement = "+"
-ligne = "-"
-ligneComplete = croisement
-colonne = 0
-while(colonne < 5) :
-    for j in range (4): 
-        ligneComplete += ligne
-    ligneComplete += croisement  
-    colonne = colonne + 1 
-#ligneComplete += "\n" 
+while True:
+    board = int(input("what is your board (1,2) : "))
+    if (board == 1):
+        board = P1.a
+        break
+    if (board == 2):
+        board = P1.b
+        break
+while True:
+    line = int(input("what is your line (1,2,3,4,5) : "))
+    if ((line == 1)or(line == 2)or(line == 3)or(line == 4)or(line == 5)):
+        break
+while True:
+    colum = int(input("what is your column (1,2,3,4,5) : "))
+    if ((colum == 1)or(colum == 2)or(colum == 3)or(colum == 4)or(colum == 5)):
+        break
+Dom(line,colum,board,Dom1)
+if localisationTuile == 2 :
+    Dom(line+1,colum,board,Dom2)
+elif localisationTuile == 4 :
+    Dom(line,colum-1,board,Dom2)
+elif localisationTuile == 6 :
+    Dom(line,colum+1,board,Dom2)
+elif localisationTuile == 8 :
+    Dom(line-1,colum,board,Dom2)
 
-
-a = [[1, 1, 0, 0, 4, 0, 2, 2, 2, 1 ], [1, 1, 2, 3, 4, 0, 2, 2, 2, 1 ], [1, 1, 2, 3, 4, 0, 2, 2, 2, 1 ], [1, 1, 2, 3, 4, 0, 2, 2, 2, 1 ], [1, 1, 2, 3, 4, 0, 2, 2, 2, 1 ]]
-
-for i in range(len(a)):
-    for j in range(len(a[i])):
-        if (j % 2) == 0:
-            if a[i][j] != 0:
-                print((DominoOne((a[i][j]), (a[i][j+1]))), end='')
-            elif a[i][j] == 0:
-                print("    ", end='')
-    print()
+#Castle(line,colum,board)
+print(board)
+print_board(board)
+print("")

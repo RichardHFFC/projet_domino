@@ -1,5 +1,5 @@
 from listDomino import DOMINO
-
+from Dominolib import DominoOne, DominoTwo
 # Sélection des 24 premiers dominos
 DOMINO_24 = DOMINO[:24]
 # Liste vide pour tirage des dominos
@@ -33,3 +33,13 @@ def Split2(list,number):
     SPLIT2.append(list[number].land_two)
     SPLIT2.append(list[number].king_two)
     return SPLIT2
+
+def print_board(a):
+    for i in range(len(a)):
+        for j in range(len(a[i])):
+            if (j % 2) == 0:
+                if a[i][j] != 0:
+                    print((DominoOne((a[i][j]), (a[i][j+1]))), end='')
+                elif a[i][j] == 0:
+                    print("    ", end='')
+        print()

@@ -109,6 +109,8 @@ class DominoOne():
             landOne = f"{bcolors.BGREENB}F" + kingOne + f"{bcolors.BASE}"
         elif self.land_one == 1:
             landOne = f"{bcolors.BYELLOWB}W" + kingOne + f"{bcolors.BASE}"
+        elif self.land_one == 7:
+            landOne = f"{bcolors.BWHITEB}C" + kingOne + f"{bcolors.BASE}"
 
         return "%s" % (landOne)
 
@@ -148,5 +150,7 @@ class DominoTwo():
             landTwo = f"{bcolors.BGREENB}F" + kingTwo + f"{bcolors.BASE}"
         elif self.land_two == 1:
             landTwo = f"{bcolors.BYELLOWB}W" + kingTwo + f"{bcolors.BASE}"
+        elif self.land_two == 7:
+            landTwo = f"{bcolors.BWHITEB}C" + kingTwo + f"{bcolors.BASE}"
 
         return "%s" % (landTwo)
